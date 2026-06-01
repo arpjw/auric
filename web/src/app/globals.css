@@ -1,0 +1,117 @@
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg: #FFFFFF;
+  --surface: #FAFAF8;
+  --border: #E2DDD6;
+  --text: #1A1814;
+  --muted: #8A8278;
+  --gold: #B8960C;
+  --gold-dim: #9A7C0A;
+  --red: #A0251A;
+  --green: #2A6A2A;
+  --radius: 3px;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-sans, 'Inter', system-ui, sans-serif);
+  font-size: 14px;
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3 {
+  font-family: var(--font-serif, Georgia, 'Times New Roman', serif);
+}
+
+a { color: var(--gold); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+input {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  color: var(--text);
+  font-size: 14px;
+  font-family: inherit;
+  padding: 10px 12px;
+  width: 100%;
+  outline: none;
+  transition: border-color 0.15s;
+}
+input:focus { border-color: var(--gold); }
+input::placeholder { color: var(--muted); }
+
+button {
+  border-radius: var(--radius);
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 500;
+  font-family: inherit;
+  letter-spacing: 0.02em;
+  padding: 9px 16px;
+  transition: opacity 0.15s;
+  white-space: nowrap;
+}
+button:disabled { opacity: 0.35; cursor: not-allowed; }
+button:not(:disabled):hover { opacity: 0.8; }
+
+.btn-primary {
+  background: var(--gold);
+  color: #fff;
+  border: 1px solid var(--gold);
+}
+.btn-ghost {
+  background: transparent;
+  border: 1px solid var(--border);
+  color: var(--text);
+}
+.btn-ghost:not(:disabled):hover {
+  border-color: var(--muted);
+  opacity: 1;
+}
+.btn-danger {
+  background: transparent;
+  border: 1px solid var(--red);
+  color: var(--red);
+}
+.btn-danger:not(:disabled):hover {
+  background: var(--red);
+  color: #fff;
+  opacity: 1;
+}
+
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 24px;
+}
+
+.label {
+  color: var(--muted);
+  font-size: 10px;
+  font-weight: 600;
+  font-family: var(--font-sans, system-ui, sans-serif);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+  display: block;
+}
+
+.divider {
+  border: none;
+  border-top: 1px solid var(--border);
+  margin: 40px 0;
+}
+
+.status {
+  font-size: 12px;
+  margin-top: 10px;
+  min-height: 18px;
+}
+.status.ok { color: var(--green); }
+.status.err { color: var(--red); }
+.status.pending { color: var(--gold); }
