@@ -25,15 +25,7 @@ export function Balance() {
   return (
     <section>
       <span className="label">AUR Balance</span>
-      <div style={{
-        fontFamily: "var(--font-serif)",
-        fontSize: 72,
-        fontWeight: 700,
-        color: "var(--gold)",
-        letterSpacing: "-0.03em",
-        lineHeight: 1,
-        margin: "8px 0 14px",
-      }}>
+      <div className="balance-amount">
         {formatted}
       </div>
       <div style={{ color: "var(--muted)", fontSize: 13, letterSpacing: "0.01em" }}>

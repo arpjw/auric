@@ -11,7 +11,7 @@ export default function AppPage() {
   const { isConnected } = useAccount();
 
   return (
-    <main style={{ maxWidth: 600, margin: "0 auto", padding: "96px 32px 80px" }}>
+    <main style={{ maxWidth: 600, margin: "0 auto", padding: "96px clamp(20px, 5vw, 32px) 80px" }}>
       {!isConnected ? (
         <div style={{ textAlign: "center", padding: "60px 0" }}>
           <h2
