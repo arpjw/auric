@@ -27,12 +27,17 @@ Live: [auric.aryasomu.com](https://auric.aryasomu.com)
 
 ## Deployment
 
-| Field | Value |
-|---|---|
-| Network | Ethereum Sepolia |
-| Contract | `0x650b1AdD632D1a3f09168FdF617F65d8D88d88db` |
-| Etherscan | [sepolia.etherscan.io/token/0x650b…88db](https://sepolia.etherscan.io/token/0x650b1AdD632D1a3f09168FdF617F65d8D88d88db) |
-| Sourcify | [sourcify.dev/#/lookup/0x650b…88db](https://sourcify.dev/#/lookup/0x650b1AdD632D1a3f09168FdF617F65d8D88d88db) |
+Network: Ethereum Sepolia
+
+| Contract | Address | Sourcify |
+|---|---|---|
+| Auric (AUR) | `0x650b1AdD632D1a3f09168FdF617F65d8D88d88db` | [verify](https://sourcify.dev/#/lookup/0x650b1AdD632D1a3f09168FdF617F65d8D88d88db) |
+| TokenVesting | `0x5Ae9851eE44175253464C9bb81caB1b5A3b7A9e7` | [verify](https://sourcify.dev/#/lookup/0x5Ae9851eE44175253464C9bb81caB1b5A3b7A9e7) |
+| AuricAMM | `0x5F651F54fa97DdB2bb9162061D1a22a693b331be` | [verify](https://sourcify.dev/#/lookup/0x5F651F54fa97DdB2bb9162061D1a22a693b331be) |
+
+Auric token on Etherscan: [sepolia.etherscan.io/token/0x650b…88db](https://sepolia.etherscan.io/token/0x650b1AdD632D1a3f09168FdF617F65d8D88d88db)
+
+TokenVesting parameters: beneficiary = deployer, cliff = 30 days, duration = 180 days.
 
 ## Stack
 
