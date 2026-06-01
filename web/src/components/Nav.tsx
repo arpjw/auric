@@ -3,8 +3,6 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
-const DOCS_URL = process.env.NEXT_PUBLIC_DOCS_URL ?? "http://localhost:3001";
-
 export function Nav() {
   const pathname = usePathname();
   const isDark = pathname === "/";
@@ -62,14 +60,7 @@ export function Nav() {
 
       <nav style={{ display: "flex", gap: 32, alignItems: "center" }}>
         <Link href="/" style={navLink("/")}>Home</Link>
-        <a
-          href={DOCS_URL}
-          target="_blank"
-          rel="noopener noreferrer"
-          style={{ fontSize: 13, color: mutedLink, textDecoration: "none", letterSpacing: "0.015em", fontWeight: 400, transition: "color 0.15s" }}
-        >
-          Docs
-        </a>
+        <Link href="/docs" style={navLink("/docs")}>Docs</Link>
         <Link href="/app" style={navLink("/app")}>App</Link>
         <Link href="/about" style={navLink("/about")}>About</Link>
       </nav>
