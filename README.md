@@ -11,7 +11,7 @@ Live: [auric.aryasomu.com](https://auric.aryasomu.com)
 | Name | File | Purpose |
 |---|---|---|
 | Auric | `src/Auric.sol` | ERC-20 token (AUR) with configurable transfer tax, owner-only mint, permissionless burn |
-| TokenVesting | `src/TokenVesting.sol` | Linear vesting schedule with cliff, beneficiary release, and owner revocation |
+| TokenVesting | `src/TokenVesting.sol` | Linear vesting with cliff, cliff-gated release to a fixed beneficiary |
 | AuricAMM | `src/AuricAMM.sol` | Constant-product AMM (x·y=k) for ETH/AUR with LP shares and 0.3% swap fee |
 
 ## Token
@@ -62,6 +62,37 @@ TokenVesting parameters: beneficiary = deployer, cliff = 30 days, duration = 180
 
 Fuzz tests: `testFuzz_taxNeverExceedsTransferAmount`, `testFuzz_swapETHNeverDecreasesK`, `testFuzz_swapTokensNeverDecreasesK`, `testFuzz_vestedAmountNeverExceedsTotalAndMonotone`
 
+## Project Structure
+
+```
+src/
+  Auric.sol               # ERC-20 token
+  TokenVesting.sol        # Vesting contract
+  AuricAMM.sol            # Constant-product AMM
+test/
+  Auric.t.sol             # 31 tests
+  AuricAMM.t.sol          # 37 tests
+  TokenVesting.t.sol      # 23 tests
+script/
+  Deploy.s.sol            # Deploy Auric token
+  DeployVesting.s.sol     # Deploy TokenVesting
+  DeployAMM.s.sol         # Deploy AuricAMM
+web/                      # Next.js frontend
+  src/app/
+    page.tsx              # Landing page
+    app/page.tsx          # Token interface (balance, transfer, mint, burn,
+                          #   vesting panel, AMM swap + liquidity)
+    docs/                 # Markdown docs
+    about/page.tsx        # Project info
+  src/components/
+    Balance.tsx           # AUR balance display
+    Transfer.tsx          # Token transfer
+    Mint.tsx              # Owner mint
+    Burn.tsx              # Token burn
+    Vesting.tsx           # Vesting info + release button
+    AMM.tsx               # Swap and liquidity panels
+```
+
 ## Usage
 
 ```bash
@@ -77,11 +108,17 @@ forge test -vvv
 # Local devnet
 anvil
 
-# Deploy to Sepolia
-forge script script/Deploy.s.sol \
-  --rpc-url sepolia \
-  --broadcast \
-  --verify
+# Deploy Auric token
+forge script script/Deploy.s.sol --rpc-url sepolia --broadcast --verify
+
+# Deploy TokenVesting (set env vars first)
+AUR_TOKEN_ADDRESS=<addr> VESTING_BENEFICIARY=<addr> \
+CLIFF_DURATION_SECONDS=2592000 VESTING_DURATION_SECONDS=15552000 \
+forge script script/DeployVesting.s.sol --rpc-url sepolia --broadcast --verify
+
+# Deploy AuricAMM
+AUR_TOKEN_ADDRESS=<addr> \
+forge script script/DeployAMM.s.sol --rpc-url sepolia --broadcast --verify
 ```
 
 ## License
