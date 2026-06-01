@@ -6,6 +6,8 @@ import { Balance } from "@/components/Balance";
 import { Transfer } from "@/components/Transfer";
 import { Mint } from "@/components/Mint";
 import { Burn } from "@/components/Burn";
+import { Vesting } from "@/components/Vesting";
+import { AMM } from "@/components/AMM";
 
 export default function AppPage() {
   const { isConnected } = useAccount();
@@ -42,6 +44,10 @@ export default function AppPage() {
             <Mint />
             <Burn />
           </div>
+          <hr className="divider" />
+          <Vesting />
+          <hr className="divider" />
+          <AMM />
         </>
       )}
     </main>

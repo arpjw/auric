@@ -559,6 +559,43 @@ button:not(:disabled):hover { opacity: 0.8; }
 }
 
 /* ============================================================
+   Tab bar (used in AMM and Liquidity panels)
+   ============================================================ */
+
+.tab-bar {
+  display: flex;
+  gap: 2px;
+  background: var(--border);
+  border-radius: var(--radius);
+  padding: 2px;
+}
+
+.tab-bar button {
+  flex: 1;
+  padding: 5px 14px;
+  font-size: 12px;
+  font-weight: 400;
+  background: transparent;
+  border: none;
+  color: var(--muted);
+  border-radius: 2px;
+  letter-spacing: 0;
+  white-space: nowrap;
+  transition: color 0.12s;
+}
+
+.tab-bar button.active {
+  background: var(--bg);
+  color: var(--text);
+  font-weight: 500;
+}
+
+.tab-bar button:not(.active):not(:disabled):hover {
+  color: var(--text);
+  opacity: 1;
+}
+
+/* ============================================================
    Nav — hamburger / mobile menu
    ============================================================ */
 
