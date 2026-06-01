@@ -1,6 +1,18 @@
 # Auric (AUR)
 
-A minimal ERC-20 token built with Foundry and OpenZeppelin Contracts v5, deployed to Ethereum Sepolia.
+A minimal DeFi primitive stack built from first principles for learning. Implements an ERC-20 token with transfer tax, token vesting, and a constant-product AMM — written in Solidity with Foundry and OpenZeppelin v5, deployed to Ethereum Sepolia.
+
+Live: [auric.aryasomu.com](https://auric.aryasomu.com)
+
+---
+
+## Contracts
+
+| Name | File | Purpose |
+|---|---|---|
+| Auric | `src/Auric.sol` | ERC-20 token (AUR) with configurable transfer tax, owner-only mint, permissionless burn |
+| TokenVesting | `src/TokenVesting.sol` | Linear vesting schedule with cliff, beneficiary release, and owner revocation |
+| AuricAMM | `src/AuricAMM.sol` | Constant-product AMM (x·y=k) for ETH/AUR with LP shares and 0.3% swap fee |
 
 ## Token
 
@@ -19,40 +31,46 @@ A minimal ERC-20 token built with Foundry and OpenZeppelin Contracts v5, deploye
 |---|---|
 | Network | Ethereum Sepolia |
 | Contract | `0x650b1AdD632D1a3f09168FdF617F65d8D88d88db` |
-| Etherscan | [View token](https://sepolia.etherscan.io/token/0x650b1AdD632D1a3f09168FdF617F65d8D88d88db) |
-| Sourcify | [View verification](https://sourcify.dev/#/lookup/0x650b1AdD632D1a3f09168FdF617F65d8D88d88db) |
-| Deploy tx | `0x3bc9e95fab3ec6f6a92a18968c022e84527c7cb2e4d4188d450b91c2b6577fdf` |
-| Block | 10969615 |
-| Gas paid | 0.00122975 ETH |
+| Etherscan | [sepolia.etherscan.io/token/0x650b…88db](https://sepolia.etherscan.io/token/0x650b1AdD632D1a3f09168FdF617F65d8D88d88db) |
+| Sourcify | [sourcify.dev/#/lookup/0x650b…88db](https://sourcify.dev/#/lookup/0x650b1AdD632D1a3f09168FdF617F65d8D88d88db) |
 
 ## Stack
 
-- Solidity `^0.8.20`
-- [Foundry](https://book.getfoundry.sh/)
-- [OpenZeppelin Contracts v5](https://docs.openzeppelin.com/contracts/5.x/)
+| Layer | Technology |
+|---|---|
+| Smart contracts | Solidity `^0.8.20` |
+| Build & test | Foundry (forge, cast, anvil) |
+| Libraries | OpenZeppelin Contracts v5 |
+| Frontend | Next.js 15 (App Router) |
+| Wallet | wagmi + viem |
+| Network | Ethereum Sepolia |
 
-## Project Structure
+## Tests
 
-```
-src/Auric.sol          # Token contract
-test/Auric.t.sol       # Forge tests (14 passing)
-script/Deploy.s.sol    # Deployment script
-```
+91 tests across 3 suites, all passing. Includes fuzz tests for invariant coverage.
+
+| Suite | Tests |
+|---|---|
+| `AuricTest` | 31 |
+| `AuricAMMTest` | 37 |
+| `TokenVestingTest` | 23 |
+
+Fuzz tests: `testFuzz_taxNeverExceedsTransferAmount`, `testFuzz_swapETHNeverDecreasesK`, `testFuzz_swapTokensNeverDecreasesK`, `testFuzz_vestedAmountNeverExceedsTotalAndMonotone`
 
 ## Usage
 
 ```bash
-# Install dependencies
-forge install
-
 # Compile
 forge build
 
 # Run tests
 forge test
 
-# Run tests with verbose output
+# Verbose output
 forge test -vvv
+
+# Local devnet
+anvil
 
 # Deploy to Sepolia
 forge script script/Deploy.s.sol \
