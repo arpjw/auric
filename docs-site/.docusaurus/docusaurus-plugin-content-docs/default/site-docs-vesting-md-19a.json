@@ -1,0 +1,28 @@
+{
+  "id": "vesting",
+  "title": "Token Vesting",
+  "description": "src/TokenVesting.sol — locks any ERC-20 and releases it linearly to a fixed beneficiary.",
+  "source": "@site/docs/vesting.md",
+  "sourceDirName": ".",
+  "slug": "/vesting",
+  "permalink": "/vesting",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "sidebarPosition": 3,
+  "frontMatter": {
+    "id": "vesting",
+    "title": "Token Vesting",
+    "sidebar_position": 3
+  },
+  "sidebar": "auricSidebar",
+  "previous": {
+    "title": "Auric Token",
+    "permalink": "/auric"
+  },
+  "next": {
+    "title": "AuricAMM",
+    "permalink": "/amm"
+  }
+}

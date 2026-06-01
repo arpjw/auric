@@ -1,0 +1,65 @@
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap");
+
+:root {
+  --ifm-color-primary: #b8960c;
+  --ifm-color-primary-dark: #a6870b;
+  --ifm-color-primary-darker: #9c7f0a;
+  --ifm-color-primary-darkest: #7d6508;
+  --ifm-color-primary-light: #caa50d;
+  --ifm-color-primary-lighter: #d4ae0e;
+  --ifm-color-primary-lightest: #ebc72c;
+  --ifm-code-font-size: 93%;
+  --ifm-font-family-base: "Inter", system-ui, -apple-system, sans-serif;
+  --ifm-heading-font-family: "Playfair Display", Georgia, "Times New Roman", serif;
+  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.07);
+  --ifm-navbar-background-color: rgba(255, 255, 255, 0.92);
+  --ifm-footer-background-color: #0f0e0c;
+}
+
+[data-theme="dark"] {
+  --ifm-color-primary: #d4a017;
+  --ifm-color-primary-dark: #bf8f15;
+  --ifm-color-primary-darker: #b48613;
+  --ifm-color-primary-darkest: #926c10;
+  --ifm-color-primary-light: #e9b11a;
+  --ifm-color-primary-lighter: #efba1c;
+  --ifm-color-primary-lightest: #f5cc4b;
+  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
+  --ifm-navbar-background-color: rgba(15, 14, 12, 0.9);
+  --ifm-background-color: #0f0e0c;
+  --ifm-background-surface-color: #1a1814;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--ifm-heading-font-family);
+  letter-spacing: -0.02em;
+}
+
+.navbar {
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-bottom: 1px solid var(--ifm-toc-border-color);
+}
+
+.navbar__title {
+  font-family: "Playfair Display", Georgia, serif;
+  font-weight: 700;
+  font-size: 18px;
+  letter-spacing: -0.02em;
+}
+
+.footer__title {
+  font-family: "Playfair Display", Georgia, serif;
+}
+
+article table th {
+  background: var(--ifm-table-stripe-background);
+}
+
+.markdown code {
+  background: var(--ifm-code-background);
+  border-radius: 3px;
+}

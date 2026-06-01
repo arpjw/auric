@@ -1,0 +1,28 @@
+{
+  "id": "auric",
+  "title": "Auric Token",
+  "description": "src/Auric.sol — extends OpenZeppelin ERC20 + Ownable.",
+  "source": "@site/docs/auric.md",
+  "sourceDirName": ".",
+  "slug": "/auric",
+  "permalink": "/auric",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "sidebarPosition": 2,
+  "frontMatter": {
+    "id": "auric",
+    "title": "Auric Token",
+    "sidebar_position": 2
+  },
+  "sidebar": "auricSidebar",
+  "previous": {
+    "title": "Overview",
+    "permalink": "/"
+  },
+  "next": {
+    "title": "Token Vesting",
+    "permalink": "/vesting"
+  }
+}

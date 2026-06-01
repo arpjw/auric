@@ -1,0 +1,28 @@
+{
+  "id": "amm",
+  "title": "AuricAMM",
+  "description": "src/AuricAMM.sol — toy constant-product (x·y = k) AMM for an AUR/ETH pair.",
+  "source": "@site/docs/amm.md",
+  "sourceDirName": ".",
+  "slug": "/amm",
+  "permalink": "/amm",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "sidebarPosition": 4,
+  "frontMatter": {
+    "id": "amm",
+    "title": "AuricAMM",
+    "sidebar_position": 4
+  },
+  "sidebar": "auricSidebar",
+  "previous": {
+    "title": "Token Vesting",
+    "permalink": "/vesting"
+  },
+  "next": {
+    "title": "Deployment",
+    "permalink": "/deployment"
+  }
+}
